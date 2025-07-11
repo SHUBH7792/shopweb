@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SHUBH CHAUHAN POTTERIES</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    body {
+      background-color: #f8d4ab;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .header-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .header-img {
+        max-height: 160px;
+      }
+    }
+
+    .about-section h3 {
+      font-size: 1.6rem;
+    }
+
+    .about-title-box {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 3px solid transparent;
+      border-radius: 10px;
+      background-color: #fff3e6;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #b13f3f;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: border 0.3s ease, transform 0.3s ease;
+    }
+
+    .about-title-box:hover {
+      border-color: #d27979;
+      transform: scale(1.02);
+    }
+
+    .about-title-box i {
+      color: #b13f3f;
+    }
+
+    @media (max-width: 576px) {
+      .about-title-box {
+        font-size: 1.2rem;
+        padding: 8px 16px;
+        border-width: 2px;
+      }
+
+      .card-img-top {
+        height: 120px;
+        object-fit: cover;
+      }
+
+      .card-title {
+        font-size: 0.85rem;
+      }
+
+      .btn-sm {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+      }
+    }
+
+    .address-Box {
+      border: 2px solid #000;
+      padding: 12px 20px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .map-container {
+      max-width: 800px;
+      margin: 20px auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: none;
+    }
+
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+
+  {% include 'nav.html' %}
+  {% block content %}{% endblock %}
+
+  <!-- Header Image -->
+  <div>
+    <img src="{{ url_for('static', filename='images/backgroundimage1.png') }}" alt="Showcase" class="header-img">
+  </div>
+  <hr>
+
+   <!-- Address -->
+  <div class="text-center">
+    <h2 class="address-Box"><strong>Address: Dharavi, 90-feet road, Shop No. 3</strong></h2>
+  </div>
+
+  <!-- Google Maps Embed -->
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5605718490706!2d72.85163477502657!3d19.039075582157945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c92afa9915a7%3A0x596e912d00d91b27!2sShubh%20Chauhan%20Potteries!5e0!3m2!1sen!2sin!4v1752142950205!5m2!1sen!2sin" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <!-- About Section -->
+<div class="container mt-4 about-section text-center">
+  <div class="about-title-box mx-auto mb-3">
+    About SHUBH CHAUHAN POTTERIES
+    <img src="{{ url_for('static', filename='images/diya-icon.png') }}" alt="Diya Icon" style="width: 20px; margin-left: 8px;">
+  </div>
+</div>
+
+    <hr><br>
+    <p class="text-center">
+      <strong>
+        With over 20 years of expertise, Shubh Chauhan Potteries is one of India's leading manufacturers and wholesale suppliers of clay oil lamps (diyas). Renowned for producing designer, handcrafted, and traditional earthen lamps in large volumes, we specialize exclusively in bulk orders for businesses, retailers, and exporters. Our high-quality clay diyas are not only sold across India but also exported in large quantities to international markets, supporting festive and cultural needs worldwide. As one of the biggest diya producers in the industry, we take pride in helping aspiring entrepreneurs and small businesses start their own ventures with minimal and affordable investment. Whether you're looking to start a handicraft business, open a festive retail shop, or simply source clay lamps at wholesale rates, we are your trusted partner in quality, consistency, and scale.
+      </strong>
+    </p>
+  </div>
+<hr>
+
+  <!-- Product Cards -->
+  <div class="container mt-5">
+    <div class="row justify-content-center gy-3 gx-3 flex-wrap">
+      <!-- Card 1 -->
+      <div class="col-6 col-sm-4 col-md-3 col-lg-3">
+        <div class="card card-hover h-100">
+          <img src="{{ url_for('static', filename='images/card1disp.png') }}" class="card-img-top" alt="Classical Diyas">
+          <div class="card-body text-center p-2">
+            <h6 class="card-title">CLASSICAL DIYAS</h6>
+            <a href="{{ url_for('product') }}" class="btn btn-sm btn-primary mt-1">MORE DESIGNS</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-6 col-sm-4 col-md-3 col-lg-3">
+        <div class="card card-hover h-100">
+          <img src="{{ url_for('static', filename='images/card2disp.png') }}" class="card-img-top" alt="Catering Goods">
+          <div class="card-body text-center p-2">
+            <h6 class="card-title">CATERING GOODS</h6>
+            <a href="{{ url_for('product2') }}" class="btn btn-sm btn-primary mt-1">MORE DESIGNS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <!-- YouTube Videos Section -->
+<div class="container mt-5">
+  <h3 class="text-center fw-bold mb-4">Watch Our Pottery Videos</h3>
+  
+  <!-- Scrollable Row -->
+  <div class="d-flex flex-row flex-nowrap overflow-auto gap-3 px-2">
+    
+   <!-- Video 1 -->
+<div class="card card-hover" style="min-width: 250px;">
+  <a href="https://www.youtube.com/watch?v=TW1zSSh9Uvk" target="_blank">
+    <img src="https://img.youtube.com/vi/TW1zSSh9Uvk/hqdefault.jpg" class="card-img-top" alt="Quality Product at an Affordable rates  ">
+  </a>
+  <div class="card-body text-center">
+    <h6 class="card-title">How We Make Clay Diyas</h6>
+  </div>
+</div>
+
+
+    <!-- Video 2 -->
+    <div class="card card-hover" style="min-width: 250px;">
+      <a href="https://www.youtube.com/watch?v=gGBwje6HngE" target="_blank">
+        <img src="https://img.youtube.com/vi/gGBwje6HngE/hqdefault.jpg" class="card-img-top" alt="Pottery Video 2">
+      </a>
+      <div class="card-body text-center">
+        <h6 class="card-title">Behind the Scenes at Our Workshop</h6>
+      </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="card card-hover" style="min-width: 250px;">
+      <a href="https://www.youtube.com/watch?v=kl4H_7667tg" target="_blank">
+        <img src="https://img.youtube.com/vi/kl4H_7667tg/hqdefault.jpg" class="card-img-top" alt="Pottery Video 3">
+      </a>
+      <div class="card-body text-center">
+        <h6 class="card-title">Decor Ideas with Diya Sets</h6>
+      </div>
+    </div>
+
+
+     <!-- Video 4 -->
+    <div class="card card-hover" style="min-width: 250px;">
+      <a href="https://www.youtube.com/watch?v=ItHpn44TGqU" target="_blank">
+        <img src="https://img.youtube.com/vi/ItHpn44TGqU/hqdefault.jpg" class="card-img-top" alt="Pottery Video 3">
+      </a>
+      <div class="card-body text-center">
+        <h6 class="card-title">Decor Ideas with Diya Sets</h6>
+      </div>
+    </div>
+
+     <!-- Video 5 -->
+    <div class="card card-hover" style="min-width: 250px;">
+      <a href="https://www.youtube.com/watch?v=y8hFQeW5OG0" target="_blank">
+        <img src="https://img.youtube.com/vi/y8hFQeW5OG0/hqdefault.jpg" class="card-img-top" alt="Pottery Video 3">
+      </a>
+      <div class="card-body text-center">
+        <h6 class="card-title">Decor Ideas with Diya Sets</h6>
+      </div>
+    </div>
+
+    <!-- Add more videos as needed -->
+  </div>
+</div>
+
+<!-- Add Bootstrap Icons CDN in <head> if not already included -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<footer class="bg-dark text-light pt-5 pb-3 mt-5">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between gap-4">
+      
+      <!-- Company Info -->
+      <div class="flex-fill" style="min-width: 280px;">
+        <h5 class="text-uppercase mb-3 border-bottom pb-2">Shubh Chauhan Potteries</h5>
+        <p class="small text-light">
+          Trusted manufacturer and exporter of designer clay oil lamps for over 20 years. We deliver bulk orders across India and internationally, helping businesses and festivals with traditional handmade products.
+        </p>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="flex-fill" style="min-width: 280px;">
+        <h5 class="text-uppercase mb-3 border-bottom pb-2">FAQs</h5>
+        <ul class="list-unstyled small text-light">
+          <li class="mb-2">
+            <strong>Do you offer wholesale prices?</strong><br>
+            Yes, only for bulk quantities to retailers and resellers.
+          </li>
+          <li class="mb-2">
+            <strong>Can I export your clay diyas?</strong><br>
+            Yes, we support global exports with documentation.
+          </li>
+          <li class="mb-2">
+            <strong>How to start a diya business?</strong><br>
+            We assist small business owners with affordable bulk rates.
+          </li>
+          <li>
+            <strong>What types of diyas do you offer?</strong><br>
+            Traditional, modern & designer diyas in many sizes/styles.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact and Social -->
+      <div class="flex-fill" style="min-width: 280px;">
+        <h5 class="text-uppercase mb-3 border-bottom pb-2">Connect With Us</h5>
+        <p class="small mb-1">
+          <i class="bi bi-envelope-fill me-2"></i>
+          <a href="mailto:shubhchauhan779@gmail.com" class="text-decoration-none text-light">shubhchauhan779@gmail.com</a>
+        </p>
+        <p class="small mb-3">
+          <i class="bi bi-telephone-fill me-2"></i>
+          <a href="tel:+919322345008" class="text-decoration-none text-light">+91 93223 45008</a>
+        </p>
+
+        <!-- Social Icons -->
+        <div class="d-flex gap-3">
+          <a href="https://wa.me/919322345008" target="_blank" class="text-success fs-5"><i class="bi bi-whatsapp"></i></a>
+          <a href="https://www.instagram.com" target="_blank" class="text-light fs-5"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.youtube.com/@shubhchauhanpotteries" target="_blank" class="text-danger fs-5"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="text-secondary mt-4" />
+    <p class="text-center small text-light b-0">
+      &copy; 2025 <strong>Shubh Chauhan Potteries</strong>. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+  

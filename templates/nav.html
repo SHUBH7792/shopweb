@@ -1,0 +1,76 @@
+
+{% block content %}
+<style>
+.navbar-toggler {
+  padding: 0.3rem 0.6rem;
+}
+
+.navbar-toggler-icon {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* Push down content below navbar */
+body {
+  padding-top: 70px; /* Adjust based on your navbar height */
+}
+</style>
+
+<!-- Sticky Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top shadow-sm" style="background-color: #ffffff; border-bottom: 2px solid #d27979;">
+  <div class="container-fluid px-3">
+    <!-- Brand -->
+    <a class="navbar-brand fw-bold text-danger" href="#"
+       style="font-family: 'Archivo Black', Arial, sans-serif; font-size: 1.3rem;">
+      SHUBH CHAUHAN POTTERIES
+    </a>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <ul class="navbar-nav gap-2 text-end">
+        <li class="nav-item">
+          <a class="nav-link text-dark fw-semibold" href="{{ url_for('newprod') }}">New Arrivals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark fw-semibold" href="{{ url_for('product') }}">Classical Diyas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark fw-semibold" href="{{ url_for('product2') }}">Catering Utensils</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark fw-semibold" href="{{ url_for('home') }}">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="btn btn-outline-danger dropdown-toggle" href="#" id="navbarDropdown" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Contact
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li class="dropdown-header">WhatsApp</li>
+            <li>
+              <button class="dropdown-item"
+                      onclick="window.open('https://wa.me/919322345008?text=Hi%21%20I%27m%20interested%20in%20your%20pottery%20products.', '_blank');">
+                Chat on WhatsApp
+              </button>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="dropdown-header">Email</li>
+            <li>
+              <button class="dropdown-item"
+                      onclick="window.location.href='mailto:shubhchauhan779@gmail.com?subject=Inquiry&body=Hi%2C%20I%27m%20interested%20in%20your%20products.'">
+                Send Email
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endblock %}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shubh Chauhan Potteries Lamp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #f8d4ab;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    .lamp-svg {
+      width: 220px;
+      height: 220px;
+      display: block;
+    }
+    .flame-group {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .flame-group.lit {
+      opacity: 1;
+    }
+    .brand {
+      font-family: 'Archivo Black', Arial, sans-serif;
+      font-size: 1.45rem;
+      color: #24162b;
+      letter-spacing: 0.08em;
+      margin-top: 18px;
+      text-align: center;
+    }
+    .button-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      justify-content: center;
+    }
+    .button {
+      padding: 12px 32px;
+      background: #24162b;
+      color: #ffd699;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      font-family: 'Archivo Black', Arial, sans-serif;
+      letter-spacing: 0.06em;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+    .button:hover {
+      background: #ff9800;
+      color: #24162b;
+    }
+    .button.view-btn {
+      background: #ff9800;
+      color: #24162b;
+      /* Hidden initially */
+      display: none;
+    }
+    .button.view-btn.visible {
+      display: inline-block;
+    }
+    .button.view-btn:hover {
+      background: #24162b;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <svg class="lamp-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+      <!-- Flame group: static, sized to half the lamp height -->
+      <g id="flameGroup" class="flame-group">
+        <!-- Outer flame: orange to red gradient -->
+        <linearGradient id="flameGradient" x1="110" y1="40" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#ffbe40"/>
+          <stop offset="80%" stop-color="#ff5722"/>
+        </linearGradient>
+        <path d="M110 50 Q130 90 110 120 Q90 90 110 50 Z"
+              fill="url(#flameGradient)" />
+        <!-- Inner flame: white/yellow center -->
+        <path d="M110 70 Q118 95 110 110 Q102 95 110 70 Z"
+              fill="#fffbe8" opacity="0.8"/>
+      </g>
+      <!-- Lamp bowl (matches your logo) -->
+      <path d="M50 120
+               Q110 210 170 120
+               Q200 80 110 80
+               Q20 80 50 120 Z"
+            fill="#1a1a2e"/>
+      <!-- Decorative holes (approximate placement) -->
+      <circle cx="110" cy="160" r="15" fill="#f7eee6"/>
+      <circle cx="75" cy="135" r="8" fill="#f7eee6"/>
+      <circle cx="145" cy="135" r="8" fill="#f7eee6"/>
+      <circle cx="60" cy="120" r="6" fill="#f7eee6"/>
+      <circle cx="160" cy="120" r="6" fill="#f7eee6"/>
+      <circle cx="95" cy="150" r="5" fill="#f7eee6"/>
+      <circle cx="125" cy="150" r="5" fill="#f7eee6"/>
+      <circle cx="110" cy="130" r="4" fill="#f7eee6"/>
+      <circle cx="85" cy="120" r="3" fill="#f7eee6"/>
+      <circle cx="135" cy="120" r="3" fill="#f7eee6"/>
+    </svg>
+    <div class="brand">SHUBH CHAUHAN POTTERIES</div>
+  </div>
+  <div class="button-row">
+    <button class="button" id="lightBtn">
+      Light Up
+    </button>
+    <a href="{{ url_for('home') }}" class="button view-btn" id="viewBtn">View</a>
+  </div>
+
+  <script>
+    document.getElementById('lightBtn').onclick = function() {
+      const flame = document.getElementById('flameGroup');
+      const viewBtn = document.getElementById('viewBtn');
+      // Light the flame
+      flame.classList.toggle('lit');
+      // If flame is now lit, start timer for view button
+      if (flame.classList.contains('lit')) {
+        // Hide view button in case user toggled off/on quickly
+        viewBtn.classList.remove('visible');
+        setTimeout(function() {
+          // Only show if flame is still lit after 5 seconds
+          if (flame.classList.contains('lit')) {
+            viewBtn.classList.add('visible');
+          }
+        }, 1000);
+      } else {
+        // If flame is turned off, hide the view button
+        viewBtn.classList.remove('visible');
+      }
+    }
+  </script>
+</body>
+</html>
